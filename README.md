@@ -15,7 +15,7 @@ Welcome to the Object-Oriented Programming (OOP) Labs Repository. This repositor
 - **Python:** Labs and assignments implemented in Python.
 - **C#:** Labs and assignments implemented in C#.
 
-Each language folder contains individual lab assignments with their own README files, source code, and documentation.
+Each language folder contains individual lab assignments, which may have the same underlying objectives but are implemented in different programming languages. This approach allows me to gain a deeper understanding of various languages by tackling the same problems using different language features and paradigms. Each lab assignment comes with its own README files, source code, and documentation.
 
 ## Lab Assignment Structure
 
@@ -44,4 +44,4 @@ This project is licensed under the GNU General Public License (GNU GPL), which c
 
 For questions, feedback, or inquiries, please contact the repository owner.
 
-Enjoy your journey into the world of object-oriented programming with these labs in various languages!
+Enjoy your journey into the world of object-oriented programming with these pathetic labs in various languages!
