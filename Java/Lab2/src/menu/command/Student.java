@@ -14,7 +14,7 @@ public class Student{
 
         while (!Objects.equals(nextCommand, "b")) {
 
-            Menu.printStudentCommand();
+//            Menu.printStudentCommand();
             nextCommand = scanner.nextLine();
             ArrayList<String> parsedCommand = Menu.parseCommand(nextCommand);
 
