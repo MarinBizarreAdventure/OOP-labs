@@ -30,7 +30,7 @@ public class GeneralService {
                 return;
             }
             Faculty newFaculty = new Faculty( params.get(1), params.get(2), studyField, new ArrayList<>());
-            facultyManager.addFaculty(newFaculty);
+            faculties.add(newFaculty);
             System.out.println("New faculty created: " + newFaculty);
             logger.info("New faculty created: " + newFaculty);
         }catch (Exception e) {
@@ -112,13 +112,16 @@ public class GeneralService {
         try {
             String email = params.get(1);
             for (Faculty faculty : faculties)
-                for (Student st : faculty.getStudents())
+                for (Student st : faculty.getStudents()){
                     if (st.getEmail().equals(email)) {
                         String message = "searchStudent: Student with email " + email + " is present in the faculty: " + faculty;
                         logger.info(message);
                         System.out.println(message);
                         return;
                     }
+                    System.out.println(st.getEmail());
+                }
+
             String message = "searchStudent: Student with email " + email + " doesn't exist";
             logger.info(message);
             System.out.println(message);

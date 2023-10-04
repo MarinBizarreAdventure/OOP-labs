@@ -39,7 +39,6 @@ public class FileService {
             LoggerUtil.getLogger().severe("Error loading data: " + e.getMessage());
             System.err.println("Error loading data: " + e.getMessage());
         }
-        LoggerUtil.getLogger().info(faculties.toString());
         FacultyService facultyService = new FacultyService();
         facultyService.setFaculties(faculties);
 

@@ -10,7 +10,6 @@ public class Menu {
             What do you want to do?
             g - General operations
             f - Faculty operations
-            s - Student operations
             d - Data operations
 
             q - Quit program

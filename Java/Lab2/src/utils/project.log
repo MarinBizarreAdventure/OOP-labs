@@ -151,3 +151,254 @@ Oct 04, 2023 5:02:49 PM services.FileService batchReader
 INFO: Batch graduation completed.
 Oct 04, 2023 5:03:04 PM services.FacultyService getFacultyByAbbreviation
 INFO: Found faculty with abbreviation: p
+Oct 04, 2023 5:51:00 PM services.FileService resetData
+INFO: Data reset to default.
+Oct 04, 2023 5:55:35 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 5:55:35 PM models.Faculty <init>
+INFO: Faculty created - Name: facultatea de calculatoare, informatica si microelectronica, Abbreviation: fcim, Field: SOFTWARE_ENGINEERING
+Oct 04, 2023 5:55:35 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 5:56:39 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FT' is valid.
+Oct 04, 2023 5:56:39 PM models.Faculty <init>
+INFO: Faculty created - Name: facultatea Tehnologiei alimentatiei, Abbreviation: fta, Field: FOOD_TECHNOLOGY
+Oct 04, 2023 5:56:39 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Oct 04, 2023 6:00:35 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'ME' is valid.
+Oct 04, 2023 6:00:35 PM models.Faculty <init>
+INFO: Faculty created - Name: facultatea de inginerie mecanica, Abbreviation: fme, Field: MECHANICAL_ENGINEERING
+Oct 04, 2023 6:00:35 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Oct 04, 2023 6:01:18 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'UA' is valid.
+Oct 04, 2023 6:01:18 PM models.Faculty <init>
+INFO: Faculty created - Name: facultatea de arhitectura si urbanism, Abbreviation: fau, Field: URBANISM_ARCHITECTURE
+Oct 04, 2023 6:01:18 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+Oct 04, 2023 6:04:50 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:04:50 PM models.Student <init>
+INFO: Created student: marin negai (Email: negaimarin@gmail.com)
+Oct 04, 2023 6:04:50 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='marin', lastName='negai', email='negaimarin@gmail.com', enrollmentDate=Wed Oct 04 18:04:50 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=false} was successfully created
+Oct 04, 2023 6:05:38 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:05:38 PM models.Student <init>
+INFO: Created student: maxim palamadeala (Email: maxim.plamadeala@gmail.com)
+Oct 04, 2023 6:05:38 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='maxim', lastName='palamadeala', email='maxim.plamadeala@gmail.com', enrollmentDate=Wed Oct 04 18:05:38 EEST 2023, dateOfBirth=Sun Apr 18 00:00:00 EEST 2004, graduated=false} was successfully created
+Oct 04, 2023 6:06:30 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:06:30 PM models.Student <init>
+INFO: Created student: Schipschi Daniil (Email: schipschip@gmail.com)
+Oct 04, 2023 6:06:30 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='Schipschi', lastName='Daniil', email='schipschip@gmail.com', enrollmentDate=Wed Oct 04 18:06:30 EEST 2023, dateOfBirth=Tue Apr 29 00:00:00 EEST 2003, graduated=false} was successfully created
+Oct 04, 2023 6:06:48 PM services.GeneralService displayFaculties
+INFO: Displaying faculties:
+Oct 04, 2023 6:06:48 PM services.GeneralService displayFaculties
+INFO: Faculty{name='poco', abbreviation='p', field=SOFTWARE_ENGINEERING}
+
+Oct 04, 2023 6:07:30 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 6:07:30 PM services.GeneralService displayFacultiesOfAField
+INFO: Displaying faculties for field: SOFTWARE_ENGINEERING
+Oct 04, 2023 6:15:38 PM utils.LoggerUtil ConfigureLogger
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 6:15:38 PM enums.StudyField isValidAbbreviation
+WARNING: Abbreviation 'FAF ' is not valid.
+Oct 04, 2023 6:15:38 PM services.GeneralService createFaculty
+WARNING: No such field: FAF  try one more time
+Oct 04, 2023 6:15:59 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 6:15:59 PM models.Faculty <init>
+INFO: Faculty created - Name: facultatea de calculatoare, informatica si microelectronica, Abbreviation: fcim, Field: SOFTWARE_ENGINEERING
+Oct 04, 2023 6:15:59 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 6:16:05 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FT' is valid.
+Oct 04, 2023 6:16:05 PM models.Faculty <init>
+INFO: Faculty created - Name: facultatea Tehnologiei alimentatiei, Abbreviation: fta, Field: FOOD_TECHNOLOGY
+Oct 04, 2023 6:16:05 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Oct 04, 2023 6:16:09 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'ME' is valid.
+Oct 04, 2023 6:16:09 PM models.Faculty <init>
+INFO: Faculty created - Name: facultatea de inginerie mecanica, Abbreviation: fme, Field: MECHANICAL_ENGINEERING
+Oct 04, 2023 6:16:09 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Oct 04, 2023 6:16:15 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'UA' is valid.
+Oct 04, 2023 6:16:15 PM models.Faculty <init>
+INFO: Faculty created - Name: facultatea de arhitectura si urbanism, Abbreviation: fau, Field: URBANISM_ARCHITECTURE
+Oct 04, 2023 6:16:15 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+Oct 04, 2023 6:16:25 PM services.FileService saveData
+INFO: Data saved to Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 6:16:32 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 6:16:32 PM services.FileService loadData
+INFO: [Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}, Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}, Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}, Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}]
+Oct 04, 2023 6:16:44 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:16:44 PM models.Student <init>
+INFO: Created student: marin negai (Email: negaimarin@gmail.com)
+Oct 04, 2023 6:16:44 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='marin', lastName='negai', email='negaimarin@gmail.com', enrollmentDate=Wed Oct 04 18:16:44 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=false} was successfully created
+Oct 04, 2023 6:16:44 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:16:44 PM models.Student <init>
+INFO: Created student: maxim palamadeala (Email: maxim.plamadeala@gmail.com)
+Oct 04, 2023 6:16:44 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='maxim', lastName='palamadeala', email='maxim.plamadeala@gmail.com', enrollmentDate=Wed Oct 04 18:16:44 EEST 2023, dateOfBirth=Sun Apr 18 00:00:00 EEST 2004, graduated=false} was successfully created
+Oct 04, 2023 6:16:44 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:16:44 PM models.Student <init>
+INFO: Created student: Schipschi Daniil (Email: schipschip@gmail.com)
+Oct 04, 2023 6:16:44 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='Schipschi', lastName='Daniil', email='schipschip@gmail.com', enrollmentDate=Wed Oct 04 18:16:44 EEST 2023, dateOfBirth=Tue Apr 29 00:00:00 EEST 2003, graduated=false} was successfully created
+Oct 04, 2023 6:16:44 PM services.FileService batchReader
+WARNING: Invalid enrollment data: 
+Oct 04, 2023 6:16:44 PM services.FileService batchReader
+WARNING: Invalid enrollment data: 
+Oct 04, 2023 6:16:44 PM services.FileService batchReader
+INFO: Batch enrollment completed.
+Oct 04, 2023 6:17:06 PM services.GeneralService searchStudent
+INFO: searchStudent: Student with email schipschip@gmail.com doesn't exist
+Oct 04, 2023 6:17:27 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:17:27 PM models.Student <init>
+INFO: Created student: marin negai (Email: negaimarin@gmail.com)
+Oct 04, 2023 6:17:27 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='marin', lastName='negai', email='negaimarin@gmail.com', enrollmentDate=Wed Oct 04 18:17:27 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=false} was successfully created
+Oct 04, 2023 6:17:27 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:17:27 PM models.Student <init>
+INFO: Created student: maxim palamadeala (Email: maxim.plamadeala@gmail.com)
+Oct 04, 2023 6:17:27 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='maxim', lastName='palamadeala', email='maxim.plamadeala@gmail.com', enrollmentDate=Wed Oct 04 18:17:27 EEST 2023, dateOfBirth=Sun Apr 18 00:00:00 EEST 2004, graduated=false} was successfully created
+Oct 04, 2023 6:17:27 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:17:27 PM models.Student <init>
+INFO: Created student: Schipschi Daniil (Email: schipschip@gmail.com)
+Oct 04, 2023 6:17:27 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='Schipschi', lastName='Daniil', email='schipschip@gmail.com', enrollmentDate=Wed Oct 04 18:17:27 EEST 2023, dateOfBirth=Tue Apr 29 00:00:00 EEST 2003, graduated=false} was successfully created
+Oct 04, 2023 6:17:27 PM services.FileService batchReader
+WARNING: Invalid enrollment data: 
+Oct 04, 2023 6:17:27 PM services.FileService batchReader
+WARNING: Invalid enrollment data: 
+Oct 04, 2023 6:17:27 PM services.FileService batchReader
+INFO: Batch enrollment completed.
+Oct 04, 2023 6:18:57 PM services.GeneralService displayFaculties
+INFO: Displaying faculties:
+Oct 04, 2023 6:18:57 PM services.GeneralService displayFaculties
+INFO: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+
+Oct 04, 2023 6:19:06 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 6:19:06 PM services.GeneralService displayFacultiesOfAField
+INFO: Displaying faculties for field: SOFTWARE_ENGINEERING
+Oct 04, 2023 6:19:21 PM services.GeneralService searchStudent
+INFO: searchStudent: Student with email schipschip@gmail.com doesn't exist
+Oct 04, 2023 6:21:18 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: schipschip@gmail.com
+Oct 04, 2023 6:21:18 PM services.FacultyService graduateStudent
+INFO: Student Student{firstName='Schipschi', lastName='Daniil', email='schipschip@gmail.com', enrollmentDate=Wed Oct 04 18:16:44 EEST 2023, dateOfBirth=Tue Apr 29 00:00:00 EEST 2003, graduated=true} is now graduated!
+Oct 04, 2023 6:21:39 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:21:39 PM services.FacultyService displayAllStudentsByFaculty
+INFO: Displaying students for faculty: facultatea de calculatoare, informatica si microelectronica
+Oct 04, 2023 6:22:20 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:22:40 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: schipschip@gmail.com
+Oct 04, 2023 6:22:40 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:22:40 PM services.FacultyService checkIfStudentIsPresentInFaculty
+INFO: Student Schipschi Daniil belongs to faculty facultatea de calculatoare, informatica si microelectronica
+Oct 04, 2023 6:30:13 PM services.FileService saveData
+INFO: Data saved to Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 6:36:22 PM utils.LoggerUtil ConfigureLogger
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 6:36:22 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 6:36:22 PM services.FileService loadData
+INFO: [Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}, Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}, Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}, Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}]
+Oct 04, 2023 6:36:37 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:36:37 PM models.Student <init>
+INFO: Created student: marin negai (Email: negaimarin@gmail.com)
+Oct 04, 2023 6:36:37 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='marin', lastName='negai', email='negaimarin@gmail.com', enrollmentDate=Wed Oct 04 18:36:37 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=false} was successfully created
+Oct 04, 2023 6:36:37 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:36:37 PM models.Student <init>
+INFO: Created student: maxim palamadeala (Email: maxim.plamadeala@gmail.com)
+Oct 04, 2023 6:36:37 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='maxim', lastName='palamadeala', email='maxim.plamadeala@gmail.com', enrollmentDate=Wed Oct 04 18:36:37 EEST 2023, dateOfBirth=Sun Apr 18 00:00:00 EEST 2004, graduated=false} was successfully created
+Oct 04, 2023 6:36:37 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:36:37 PM models.Student <init>
+INFO: Created student: Schipschi Daniil (Email: schipschip@gmail.com)
+Oct 04, 2023 6:36:37 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='Schipschi', lastName='Daniil', email='schipschip@gmail.com', enrollmentDate=Wed Oct 04 18:36:37 EEST 2023, dateOfBirth=Tue Apr 29 00:00:00 EEST 2003, graduated=false} was successfully created
+Oct 04, 2023 6:36:37 PM services.FileService batchReader
+WARNING: Invalid enrollment data: 
+Oct 04, 2023 6:36:37 PM services.FileService batchReader
+WARNING: Invalid enrollment data: 
+Oct 04, 2023 6:36:37 PM services.FileService batchReader
+INFO: Batch enrollment completed.
+Oct 04, 2023 6:36:48 PM services.GeneralService displayFaculties
+INFO: Displaying faculties:
+Oct 04, 2023 6:36:48 PM services.GeneralService displayFaculties
+INFO: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+
+Oct 04, 2023 6:37:15 PM services.GeneralService searchStudent
+INFO: searchStudent: Student with email schipschip@gmail.com is present in the faculty: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 6:37:41 PM services.GeneralService searchStudent
+INFO: searchStudent: Student with email maxim.plamadeala@gmail.com is present in the faculty: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 6:38:26 PM services.GeneralService searchStudent
+INFO: searchStudent: Student with email negaimarin@gmail.com is present in the faculty: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 6:38:41 PM services.GeneralService displayFaculties
+INFO: Displaying faculties:
+Oct 04, 2023 6:38:41 PM services.GeneralService displayFaculties
+INFO: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+
+Oct 04, 2023 6:38:46 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 6:38:46 PM services.GeneralService displayFacultiesOfAField
+INFO: Displaying faculties for field: SOFTWARE_ENGINEERING
+Oct 04, 2023 6:39:05 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:39:05 PM services.FacultyService displayAllStudentsByFaculty
+INFO: Displaying students for faculty: facultatea de calculatoare, informatica si microelectronica
+Oct 04, 2023 6:40:10 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: negaimarin@gmail.com
+Oct 04, 2023 6:40:10 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 04, 2023 6:40:10 PM services.FacultyService checkIfStudentIsPresentInFaculty
+INFO: Student marin negai belongs to faculty facultatea de calculatoare, informatica si microelectronica
+Oct 04, 2023 6:47:49 PM utils.LoggerUtil ConfigureLogger
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 6:47:49 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 6:47:49 PM services.FileService loadData
+INFO: [Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}, Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}, Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}, Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}]
+Oct 04, 2023 6:49:56 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 6:51:12 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: negaimarin@gmail.com
+Oct 04, 2023 6:51:12 PM services.FacultyService graduateStudent
+INFO: Student Student{firstName='marin', lastName='negai', email='negaimarin@gmail.com', enrollmentDate=Wed Oct 04 18:16:44 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=true} is now graduated!
+Oct 04, 2023 6:53:27 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt

@@ -10,14 +10,11 @@ public class LoggerUtil {
     }
     private static void ConfigureLogger() {
         logger.setLevel(Level.ALL);
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.ALL);
-        logger.addHandler(consoleHandler);
+        logger.setUseParentHandlers(false);
 
         try {
             FileHandler fileHandler = new FileHandler("Java/Lab2/src/utils/project.log", true);
             fileHandler.setLevel(Level.ALL);
-
             SimpleFormatter formatter = new SimpleFormatter();
             fileHandler.setFormatter(formatter);
             logger.addHandler(fileHandler);
@@ -26,8 +23,6 @@ public class LoggerUtil {
             logger.log(Level.SEVERE, "Error initializing the log file: " + e.getMessage(), e);
             System.out.println("catch");
         }
-        logger.log(Level.SEVERE, "Error initializing the log file: ");
-
     }
 
     public static Logger getLogger() {

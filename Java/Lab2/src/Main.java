@@ -2,12 +2,16 @@ import userinterface.Menu;
 import userinterface.commands.FileCommand;
 import userinterface.commands.GeneralCommand;
 import userinterface.commands.FacultyCommand;
-import userinterface.commands.StudentCommand;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 
+
+//nf/facultatea de calculatoare, informatica si microelectronica/fcim/FAF
+//        nf/facultatea Tehnologiei alimentatiei/fta/FT
+//        nf/facultatea de inginerie mecanica/fme/ME
+//        nf/facultatea de arhitectura si urbanism/fau/UA
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -22,10 +26,6 @@ public class Main {
                     break;
                 case "f":
                     new FacultyCommand(scanner);
-
-                    break;
-                case "s":
-                    new StudentCommand(scanner);
                     break;
                 case "d":
                     new FileCommand(scanner);
@@ -40,7 +40,5 @@ public class Main {
         }
 
     }
-
-
 
 }
