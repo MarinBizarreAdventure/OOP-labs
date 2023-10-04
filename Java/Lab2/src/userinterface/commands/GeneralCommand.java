@@ -1,35 +1,32 @@
-package menu.command;
+package userinterface.commands;
 
-import manager.GeneralManager;
-import menu.Menu;
+import services.GeneralService;
+import userinterface.Menu;
 
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class General {
+public class GeneralCommand {
 
-    public General(Scanner scanner) {
-
+    public GeneralCommand(Scanner scanner) {
         String nextCommand = null;
-
         while (!Objects.equals(nextCommand, "b")) {
             Menu.printGeneralCommands();
             nextCommand = scanner.nextLine();
-            ArrayList<String> parsedCommand = Menu.parseCommand(nextCommand);
-            switch (parsedCommand.get(0)) {
+            ArrayList<String> params = Menu.parseCommand(nextCommand);
+            switch (params.get(0)) {
                 case "nf":
-                    try {
-                        GeneralManager.createFaculty(parsedCommand);
-                    } catch (Exception e) {
-                        System.out.println("Incorrect command, try one more time");
-                    }
+                        GeneralService.createFaculty(params);
                     break;
                 case "ss":
-                        GeneralManager.searchStudent(parsedCommand);
+                        GeneralService.searchStudent(params);
                     break;
                 case "df":
-                        GeneralManager.displayFaculties(parsedCommand);
+                        if(params.size() == 1)
+                            GeneralService.displayFaculties(params);
+                        else
+                            GeneralService.displayFacultiesOfAField(params);
                     break;
                 case "b":
                     break;
@@ -41,7 +38,5 @@ public class General {
                     break;
             }
         }
-
-
     }
 }

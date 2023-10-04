@@ -1,24 +1,31 @@
 package models;
 
-import enumerations.StudyField;
+import enums.StudyField;
+import utils.LoggerUtil;
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.logging.Logger;
 
-public class Faculty {
+
+public class Faculty implements Serializable {
     private String name;
     private String abbreviation;
     private StudyField field;
-    private List<Student> students;
+    private ArrayList<Student> students;
+    private static final Logger logger = LoggerUtil.getLogger();
 
-
-    public Faculty(String name, String abbreviation, StudyField field, List<Student> students) {
+    public Faculty (String name, String abbreviation, StudyField field, ArrayList<Student> students) {
         this.name = name;
         this.abbreviation = abbreviation;
         this.field = field;
         this.students = students;
+
+        logger.info("Faculty created - Name: " + name + ", Abbreviation: " + abbreviation + ", Field: " + field);
+        for (Student student : students) {
+            logger.info("Student added to faculty - Faculty: " + abbreviation + ", Student: " + student.getEmail());
+        }
     }
-
-
 
     public String getName() {
         return name;
@@ -43,10 +50,10 @@ public class Faculty {
     public void setField(StudyField field) {
         this.field = field;
     }
-    public List<Student> getStudents() {
+    public ArrayList<Student> getStudents() {
         return students;
     }
-    public void setStudents(List<Student> students) {
+    public void setStudents(ArrayList<Student> students) {
         this.students = students;
     }
 

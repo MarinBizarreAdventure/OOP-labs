@@ -1,39 +1,46 @@
 package models;
 
-import java.util.Date;
+import utils.LoggerUtil;
 
-public class Student {
-    private String fName;
-    private String lName;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.logging.Logger;
+
+public class Student implements Serializable {
+    private String firstName;
+    private String lastName;
     private String email;
     private Date enrollmentDate;
     private Date dateOfBirth;
     private boolean graduated;
 
-    public Student(String fName, String lName, String email, Date enrollmentDate, Date dateOfBirth, boolean graduated) {
-        this.fName = fName;
-        this.lName = lName;
+    private static Logger logger = LoggerUtil.getLogger();
+
+    public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth, boolean graduated) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.enrollmentDate = enrollmentDate;
         this.dateOfBirth = dateOfBirth;
         this.graduated = graduated;
-    }
 
+        logger.info("Created student: " + firstName + " " + lastName + " (Email: " + email + ")");
+    }
 
     public String getFirstName() {
-        return fName;
+        return firstName;
     }
 
-    public void setFirstName(String fName) {
-        this.fName = fName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return lName;
+        return lastName;
     }
 
-    public void setLastName(String lName) {
-        this.lName = lName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -59,9 +66,11 @@ public class Student {
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-    public boolean getGraduated() {
+
+    public boolean isGraduated() {
         return graduated;
     }
+
     public void setGraduated(boolean graduated) {
         this.graduated = graduated;
     }
@@ -69,8 +78,8 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", enrollmentDate=" + enrollmentDate +
                 ", dateOfBirth=" + dateOfBirth +

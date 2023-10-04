@@ -1,14 +1,14 @@
-package menu.command;
+package userinterface.commands;
 
-import menu.Menu;
+import userinterface.Menu;
 
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Student{
+public class StudentCommand {
 
-    public Student(Scanner scanner) {
+    public StudentCommand(Scanner scanner) {
 
         String nextCommand = null;
 
