@@ -400,3 +400,5 @@ Oct 04, 2023 6:51:12 PM services.FacultyService getStudentByEmail
 INFO: Found student with email: negaimarin@gmail.com
 Oct 04, 2023 6:51:12 PM services.FacultyService graduateStudent
 INFO: Student Student{firstName='marin', lastName='negai', email='negaimarin@gmail.com', enrollmentDate=Wed Oct 04 18:16:44 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=true} is now graduated!
+Oct 04, 2023 6:53:27 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt

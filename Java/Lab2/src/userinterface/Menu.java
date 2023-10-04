@@ -1,9 +1,44 @@
 package userinterface;
 
+import userinterface.commands.FacultyCommand;
+import userinterface.commands.FileCommand;
+import userinterface.commands.GeneralCommand;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class Menu {
+    public void StartMenu(){
+        Scanner scanner = new Scanner(System.in);
+
+        String nextCommand = null;
+        while (!Objects.equals(nextCommand, "q")){
+            Menu.printMainCommands();
+            nextCommand = scanner.nextLine();
+            ArrayList<String> parsedCommand = Menu.divideCommand(nextCommand);
+            switch (parsedCommand.get(0)){
+                case "g":
+                    new GeneralCommand(scanner);
+                    break;
+                case "f":
+                    new FacultyCommand(scanner);
+                    break;
+                case "d":
+                    new FileCommand(scanner);
+                    break;
+                case "q":
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Unrecognized command!");
+                    break;
+            }
+        }
+
+    }
+
     public static void printMainCommands() {
         System.out.println("""
             Welcome to TUM's student management system!

@@ -402,3 +402,13 @@ Oct 04, 2023 6:51:12 PM services.FacultyService graduateStudent
 INFO: Student Student{firstName='marin', lastName='negai', email='negaimarin@gmail.com', enrollmentDate=Wed Oct 04 18:16:44 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=true} is now graduated!
 Oct 04, 2023 6:53:27 PM services.FileService loadData
 INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 8:37:35 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 8:37:47 PM services.GeneralService displayFaculties
+INFO: Displaying faculties:
+Oct 04, 2023 8:37:47 PM services.GeneralService displayFaculties
+INFO: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+
