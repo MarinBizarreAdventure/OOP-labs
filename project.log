@@ -1,0 +1,8 @@
+Oct 04, 2023 3:21:47 PM utils.LoggerUtil <clinit>
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 3:21:47 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 3:21:47 PM models.Faculty <init>
+INFO: Faculty created - Name: qwe, Abbreviation: ad, Field: SOFTWARE_ENGINEERING
+Oct 04, 2023 3:21:47 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='qwe', abbreviation='ad', field=SOFTWARE_ENGINEERING}

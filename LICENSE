@@ -107,7 +107,7 @@ tells the user that there is no warranty for the work (except to the
 extent that warranties are provided), that licensees may convey the
 work under this License, and how to view a copy of this License.  If
 the interface presents a list of user commands or options, such as a
-menu, a prominent item in the list meets this criterion.
+userinterface, a prominent item in the list meets this criterion.
 
   1. Source Code.
 
@@ -141,7 +141,7 @@ which are not part of the work.  For example, Corresponding Source
 includes interface definition files associated with source files for
 the work, and the source code for shared libraries and dynamically
 linked subprograms that the work is specifically designed to require,
-such as by intimate data communication or control flow between those
+such as by intimate datastorage communication or control flow between those
 subprograms and other parts of the work.
 
   The Corresponding Source need not include anything that users
