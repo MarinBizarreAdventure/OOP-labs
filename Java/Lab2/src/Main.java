@@ -15,7 +15,7 @@ public class Main {
         while (!Objects.equals(nextCommand, "q")){
             Menu.printMainCommands();
             nextCommand = scanner.nextLine();
-            ArrayList<String> parsedCommand = Menu.parseCommand(nextCommand);
+            ArrayList<String> parsedCommand = Menu.divideCommand(nextCommand);
             switch (parsedCommand.get(0)){
                 case "g":
                     new GeneralCommand(scanner);

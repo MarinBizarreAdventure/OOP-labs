@@ -14,7 +14,7 @@ public class FacultyCommand {
         while (!Objects.equals(nextCommand, "b")) {
             Menu.printFacultyCommands();
             nextCommand = scanner.nextLine();
-            ArrayList<String> params = Menu.parseCommand(nextCommand);
+            ArrayList<String> params = Menu.divideCommand(nextCommand);
             switch (params.get(0)) {
                 case "ns":
                         FacultyService.createStudent(params);

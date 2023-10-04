@@ -6,3 +6,97 @@ Oct 04, 2023 3:44:59 PM models.Faculty <init>
 INFO: Faculty created - Name: qwe, Abbreviation: asd, Field: SOFTWARE_ENGINEERING
 Oct 04, 2023 3:44:59 PM services.GeneralService createFaculty
 INFO: New faculty created: Faculty{name='qwe', abbreviation='asd', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 3:46:05 PM utils.LoggerUtil ConfigureLogger
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 3:46:05 PM enums.StudyField isValidAbbreviation
+WARNING: Abbreviation 'faf' is not valid.
+Oct 04, 2023 3:46:05 PM services.GeneralService createFaculty
+WARNING: No such field: faf try one more time
+Oct 04, 2023 3:46:36 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 3:46:36 PM models.Faculty <init>
+INFO: Faculty created - Name: aqwe, Abbreviation: rgeer, Field: SOFTWARE_ENGINEERING
+Oct 04, 2023 3:46:36 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='aqwe', abbreviation='rgeer', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 4:02:37 PM utils.LoggerUtil ConfigureLogger
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 4:02:37 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 4:02:37 PM models.Faculty <init>
+INFO: Faculty created - Name: qwe, Abbreviation: q, Field: SOFTWARE_ENGINEERING
+Oct 04, 2023 4:02:37 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='qwe', abbreviation='q', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 4:02:53 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 4:02:53 PM services.GeneralService displayFacultiesOfAField
+INFO: Displaying faculties for field: SOFTWARE_ENGINEERING
+Oct 04, 2023 4:03:30 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: q
+Oct 04, 2023 4:03:30 PM models.Student <init>
+INFO: Created student: qwe asd (Email: afs)
+Oct 04, 2023 4:03:30 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='qwe', lastName='asd', email='afs', enrollmentDate=Wed Oct 04 16:03:30 EEST 2023, dateOfBirth=Thu Mar 28 00:00:00 EET 2002, graduated=false} was successfully created
+Oct 04, 2023 4:48:08 PM utils.LoggerUtil ConfigureLogger
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 4:48:08 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 4:48:08 PM models.Faculty <init>
+INFO: Faculty created - Name: popo, Abbreviation: p, Field: SOFTWARE_ENGINEERING
+Oct 04, 2023 4:48:08 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='popo', abbreviation='p', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 4:48:35 PM services.FileService resetData
+INFO: Data reset to default.
+Oct 04, 2023 4:51:22 PM utils.LoggerUtil ConfigureLogger
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 4:51:22 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 04, 2023 4:51:22 PM models.Faculty <init>
+INFO: Faculty created - Name: popo, Abbreviation: p, Field: SOFTWARE_ENGINEERING
+Oct 04, 2023 4:51:22 PM services.GeneralService createFaculty
+INFO: New faculty created: Faculty{name='popo', abbreviation='p', field=SOFTWARE_ENGINEERING}
+Oct 04, 2023 4:51:31 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: p
+Oct 04, 2023 4:51:31 PM models.Student <init>
+INFO: Created student: qwe asd (Email: q)
+Oct 04, 2023 4:51:31 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='qwe', lastName='asd', email='q', enrollmentDate=Wed Oct 04 16:51:31 EEST 2023, dateOfBirth=Sat Feb 02 00:00:00 EET 2002, graduated=false} was successfully created
+Oct 04, 2023 4:51:31 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: p
+Oct 04, 2023 4:51:31 PM models.Student <init>
+INFO: Created student: qwsse asssd (Email: w)
+Oct 04, 2023 4:51:31 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='qwsse', lastName='asssd', email='w', enrollmentDate=Wed Oct 04 16:51:31 EEST 2023, dateOfBirth=Sat Feb 02 00:00:00 EET 2002, graduated=false} was successfully created
+Oct 04, 2023 4:51:31 PM services.FileService batchReader
+INFO: Batch enrollment completed.
+Oct 04, 2023 4:51:40 PM services.FileService batchReader
+WARNING: Invalid graduation data: gs/q
+Oct 04, 2023 4:51:40 PM services.FileService batchReader
+WARNING: Invalid graduation data: gs/w
+Oct 04, 2023 4:51:40 PM services.FileService batchReader
+INFO: Batch graduation completed.
+Oct 04, 2023 4:52:01 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: p
+Oct 04, 2023 4:52:01 PM services.FacultyService displayGraduatedStudentsByFaculty
+INFO: No graduated students for faculty: popo
+Oct 04, 2023 4:54:11 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: p
+Oct 04, 2023 4:54:11 PM services.FacultyService displayAllStudentsByFaculty
+INFO: Displaying students for faculty: popo
+Oct 04, 2023 4:54:33 PM services.FileService batchReader
+WARNING: Invalid graduation data: gs/q
+Oct 04, 2023 4:54:33 PM services.FileService batchReader
+WARNING: Invalid graduation data: gs/w
+Oct 04, 2023 4:54:33 PM services.FileService batchReader
+INFO: Batch graduation completed.
+Oct 04, 2023 4:59:27 PM utils.LoggerUtil ConfigureLogger
+SEVERE: Error initializing the log file: 
+Oct 04, 2023 4:59:27 PM services.FileService saveData
+INFO: Data saved to Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 4:59:45 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 4:59:45 PM services.FileService loadData
+INFO: []
+Oct 04, 2023 5:00:15 PM services.FacultyService getFacultyByAbbreviation
+WARNING: Faculty with abbreviation p not found
+Oct 04, 2023 5:00:15 PM models.Student <init>
+INFO: Created student: qwe asd (Email: q)

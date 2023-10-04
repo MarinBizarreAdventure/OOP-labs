@@ -17,7 +17,7 @@ public class FileCommand {
         while (!Objects.equals(nextCommand, "b")) {
             Menu.printFileCommands();
             nextCommand = scanner.nextLine();
-            ArrayList<String> parsedCommand = Menu.parseCommand(nextCommand);
+            ArrayList<String> parsedCommand = Menu.divideCommand(nextCommand);
 
             switch (parsedCommand.get(0)) {
                 case "s":
@@ -28,6 +28,12 @@ public class FileCommand {
                     break;
                 case "r":
                     FileService.resetData();
+                    break;
+                case "res":
+                    FileService.batchReader("ns");
+                    break;
+                case "rgs":
+                    FileService.batchReader("gs");
                     break;
                 case "b":
                     break;

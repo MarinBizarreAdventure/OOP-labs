@@ -52,16 +52,18 @@ public class Menu {
             File operations
             What do you want to do?
 
-            s - Save data to a file
-            l - Load data from a file
-            r - Reset data to default
+            s   - Save data to a file
+            l   - Load data from a file
+            r   - Reset data to default
+            res - Read students to enroll
+            rgs - Read students to graduate
 
             b - Back
             q - Quit Program
             your input>\s""");
     }
 
-    public static ArrayList<String> parseCommand(String input) {
+    public static ArrayList<String> divideCommand(String input) {
         return new ArrayList<>(List.of(input.split("/")));
     }
 }

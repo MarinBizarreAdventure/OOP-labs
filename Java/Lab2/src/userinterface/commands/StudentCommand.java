@@ -16,7 +16,7 @@ public class StudentCommand {
 
 //            Menu.printStudentCommand();
             nextCommand = scanner.nextLine();
-            ArrayList<String> parsedCommand = Menu.parseCommand(nextCommand);
+            ArrayList<String> parsedCommand = Menu.divideCommand(nextCommand);
 
             if (parsedCommand.get(0).equals("q")) {
                 System.exit(0);
