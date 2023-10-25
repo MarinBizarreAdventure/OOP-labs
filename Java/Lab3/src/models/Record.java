@@ -43,6 +43,12 @@ public class Record extends File {
         }
         return null;
     }
+
+    public String getInfo(){
+        String prettyExtension = extension.isEmpty() ? "No extension" : extension;
+        return "Name:" + getName() + "\nextension:" + prettyExtension
+                + "\nCreated time:" + getCreationTime() + "\nModification time:" + getModificationTime();
+    }
 }
 
 

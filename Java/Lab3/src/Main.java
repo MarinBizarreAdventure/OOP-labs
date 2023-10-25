@@ -1,3 +1,7 @@
+import models.Image;
+import models.Script;
+import models.Text;
+
 import java.io.IOException;
 import java.nio.file.*;
 
@@ -94,5 +98,22 @@ public class Main {
 
         // Verify if the getModificationTime method works
         System.out.println("Modification Time: " + record.getModificationTime());
+
+        System.out.println("info: " + record.getInfo());
+
+        // Create an Image object
+        Image image = new Image(Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test\\cat.png"));
+
+        // Print the image's info
+        System.out.println("Image Info: ");
+        System.out.println(image.getInfo());
+
+        Text text = new Text(Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test\\gay.txt"));
+        System.out.println("text Info: ");
+        System.out.println(text.getInfo());
+
+        Script script = new Script(Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test\\Main.java"));
+        System.out.println("Script Info: ");
+        System.out.println(script.getInfo());
     }
 }
