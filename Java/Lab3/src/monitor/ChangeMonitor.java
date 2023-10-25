@@ -9,13 +9,15 @@ import java.io.InputStreamReader;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ChangeMonitor {
     private Path directoryPath;
     private long lastSnapshotTime;
-    private List<Record> records; // List to store the records
+    private List<Record> records;
 
     public ChangeMonitor(Path directoryPath) {
         this.directoryPath = directoryPath;
@@ -60,7 +62,7 @@ public class ChangeMonitor {
                 switch (command) {
                     case "commit":
                         lastSnapshotTime = System.currentTimeMillis();
-                        System.out.println("Snapshot time updated.");
+                        System.out.println("Snapshot time updated " + formatTime(lastSnapshotTime));
                         break;
                     case "status":
                         checkStatus();
@@ -89,17 +91,22 @@ public class ChangeMonitor {
     }
 
     private void checkStatus() {
+        // Specify the snapshot time
+        System.out.println("Created Snapshot at: " + formatTime(lastSnapshotTime));
+
         // Implement the logic to check the status of files since the last snapshot time
         for (Record record : records) {
+
             long lastModifiedTime = record.lastModified();
             // Check if the file was modified since the last snapshot time
             if (lastModifiedTime > lastSnapshotTime) {
-                System.out.println(record.getName() + " has been modified.");
+                System.out.println(record.getName() + " - Change at " + formatTime(lastModifiedTime));
             } else {
-                System.out.println(record.getName() + " has not been modified.");
+                System.out.println(record.getName() + " - No change science " + formatTime(lastModifiedTime));
             }
         }
     }
+
 
     private void printInfo(String fileName) {
         for (Record record : records) {
@@ -109,5 +116,11 @@ public class ChangeMonitor {
             }
         }
         System.out.println("File not found: " + fileName);
+    }
+
+    private String formatTime(long timeInMillis) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(timeInMillis);
+        return sdf.format(date);
     }
 }
