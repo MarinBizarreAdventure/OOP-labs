@@ -2,8 +2,13 @@ import models.Image;
 import models.Script;
 import models.Text;
 import monitor.ChangeMonitor;
+import monitor.ChangeMonitorApp;
+
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 class FileMonitor {
     private WatchService watchService;
@@ -112,7 +117,22 @@ public class Main {
 //        System.out.println("Script Info: ");
 //        System.out.println(script.getInfo());
         Path directoryPath = Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test");
+        ChangeMonitorApp changeMonitorApp = new ChangeMonitorApp();
+//        ChangeMonitor changeMonitor = new ChangeMonitor(directoryPath);
+//        changeMonitor.startMonitoring();
+//        Path directoryPath = Paths.get("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test");
+
+        // Create a ChangeMonitor instance
         ChangeMonitor changeMonitor = new ChangeMonitor(directoryPath);
-        changeMonitor.startMonitoring();
+
+        // Start the console input processing thread
+        Thread consoleThread = new Thread(() -> {
+            changeMonitor.startMonitoring();
+        });
+        consoleThread.start();
+
+        // Create a scheduled executor to run detectFileChanges every 5 seconds
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        scheduler.scheduleAtFixedRate(() -> changeMonitor.detectFileChanges(), 0, 5, TimeUnit.SECONDS);
     }
 }

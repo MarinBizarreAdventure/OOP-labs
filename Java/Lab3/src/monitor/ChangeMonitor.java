@@ -180,4 +180,79 @@ public class ChangeMonitor {
         Date date = new Date(timeInMillis);
         return sdf.format(date);
     }
+
+    public void detectFileChanges() {
+        // This method detects file changes and updates the records list
+
+        // Create a lock to synchronize access to the 'records' list
+        Object lock = new Object();
+
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(directoryPath)) {
+            List<Record> newRecords = new ArrayList<>();
+
+            for (Path filePath : stream) {
+                FileType fileType = FileType.determineFileType(filePath);
+
+                boolean found = false;
+
+                // Use a lock to protect access to the shared 'records' list
+                synchronized (lock) {
+                    for (Record record : records) {
+                        if (record.getName().equals(filePath.getFileName().toString())) {
+                            found = true;
+                            long lastModifiedTime = record.lastModified();
+                            // Check if the file was modified since the last snapshot time
+                            if (lastModifiedTime > lastSnapshotTime) {
+                                System.out.println(record.getName() + " - Change at " + formatTime(lastModifiedTime));
+                                this.lastSnapshotTime = lastModifiedTime;
+                            }
+
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        // New file
+                        newRecords.add(createRecord(fileType, filePath));
+                    }
+                }
+            }
+
+            // Use a lock to add new records and update the 'records' list
+            synchronized (lock) {
+                records.addAll(newRecords);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Check for deleted files
+        List<Record> recordsToRemove = new ArrayList<>();
+
+        // Use a lock to protect access to the shared 'records' list
+        synchronized (lock) {
+            for (Record record : records) {
+                boolean found = false;
+                try (DirectoryStream<Path> stream = Files.newDirectoryStream(directoryPath)) {
+                    for (Path filePath : stream) {
+                        if (record.getName().equals(filePath.getFileName().toString())) {
+                            found = true;
+                            break;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (!found) {
+                    System.out.println(record.getName() + " - Deleted");
+                    recordsToRemove.add(record);
+                }
+            }
+
+            // Remove deleted records
+            records.removeAll(recordsToRemove);
+        }
+    }
+
 }
