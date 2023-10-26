@@ -12,19 +12,30 @@ import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
+import java.nio.file.*;
+
 
 public class ChangeMonitor {
-    private Path directoryPath;
+    private final Path directoryPath;
     private long lastSnapshotTime;
-    private List<Record> records;
+
+    private  List<Record> records;
+    private WatchService watchService;
+
 
     public ChangeMonitor(Path directoryPath) {
         this.directoryPath = directoryPath;
         this.lastSnapshotTime = System.currentTimeMillis();
-        this.records = new ArrayList<>(); // Initialize the records list in the constructor
-        populateRecords(); // Call a method to populate the records list
+        this.records = new ArrayList<>();
+        try {
+            this.watchService = FileSystems.getDefault().newWatchService();
+            directoryPath.register(watchService, StandardWatchEventKinds.ENTRY_CREATE,
+                    StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.ENTRY_DELETE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        populateRecords();
     }
 
     // Method to populate the records list
@@ -33,20 +44,7 @@ public class ChangeMonitor {
             for (Path filePath : stream) {
                 FileType fileType = FileType.determineFileType(filePath);
                 // Create new instances of Record based on file type and add them to the list
-                switch (fileType) {
-                    case IMAGE:
-                        records.add(new Image(filePath));
-                        break;
-                    case TEXT:
-                        records.add(new Text(filePath));
-                        break;
-                    case SCRIPT:
-                        records.add(new Script(filePath));
-                        break;
-                    default:
-                        records.add(new Record(filePath));
-                        break;
-                }
+                records.add(createRecord(fileType, filePath));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,17 +59,16 @@ public class ChangeMonitor {
                 command = reader.readLine();
 
                 switch (command) {
-                    case "commit":
+                    case "commit" -> {
                         lastSnapshotTime = System.currentTimeMillis();
                         System.out.println("Snapshot time updated " + formatTime(lastSnapshotTime));
-                        break;
-                    case "status":
-                        checkStatus();
-                        break;
-                    case "exit":
+                    }
+                    case "status" -> checkStatus();
+                    case "exit" -> {
                         System.out.println("Exiting the program.");
                         return;
-                    default:
+                    }
+                    default -> {
                         if (command.startsWith("info ")) {
                             // Parse the filename from the 'info' command
                             String[] parts = command.split(" ");
@@ -84,6 +81,7 @@ public class ChangeMonitor {
                         } else {
                             System.out.println("Invalid command. Available commands: commit, info <filename>, status, exit.");
                         }
+                    }
                 }
             }
         } catch (IOException e) {
@@ -104,19 +102,16 @@ public class ChangeMonitor {
 
                 boolean found = false;
 
-                for (Record record : records) {
+                for (Record record : records)
                     if (record.getName().equals(filePath.getFileName().toString())) {
                         found = true;
                         long lastModifiedTime = record.lastModified();
-                        // Check if the file was modified since the last snapshot time
-                        if (lastModifiedTime > lastSnapshotTime) {
+                        if (lastModifiedTime > lastSnapshotTime)
                             System.out.println(record.getName() + " - Change at " + formatTime(lastModifiedTime));
-                        } else {
+                        else
                             System.out.println(record.getName() + " - No change since " + formatTime(lastModifiedTime));
-                        }
                         break;
                     }
-                }
 
                 if (!found) {
                     // New file
@@ -153,16 +148,12 @@ public class ChangeMonitor {
     }
 
     private Record createRecord(FileType fileType, Path filePath) {
-        switch (fileType) {
-            case IMAGE:
-                return new Image(filePath);
-            case TEXT:
-                return new Text(filePath);
-            case SCRIPT:
-                return new Script(filePath);
-            default:
-                return new Record(filePath);
-        }
+        return switch (fileType) {
+            case IMAGE -> new Image(filePath);
+            case TEXT -> new Text(filePath);
+            case SCRIPT -> new Script(filePath);
+            default -> new Record(filePath);
+        };
     }
 
     private void printInfo(String fileName) {
@@ -181,78 +172,47 @@ public class ChangeMonitor {
         return sdf.format(date);
     }
 
-    public void detectFileChanges() {
-        // This method detects file changes and updates the records list
 
-        // Create a lock to synchronize access to the 'records' list
-        Object lock = new Object();
-
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(directoryPath)) {
-            List<Record> newRecords = new ArrayList<>();
-
-            for (Path filePath : stream) {
-                FileType fileType = FileType.determineFileType(filePath);
-
-                boolean found = false;
-
-                // Use a lock to protect access to the shared 'records' list
-                synchronized (lock) {
-                    for (Record record : records) {
-                        if (record.getName().equals(filePath.getFileName().toString())) {
-                            found = true;
-                            long lastModifiedTime = record.lastModified();
-                            // Check if the file was modified since the last snapshot time
-                            if (lastModifiedTime > lastSnapshotTime) {
-                                System.out.println(record.getName() + " - Change at " + formatTime(lastModifiedTime));
-                                this.lastSnapshotTime = lastModifiedTime;
-                            }
-
-                            break;
-                        }
-                    }
-
-                    if (!found) {
-                        // New file
-                        newRecords.add(createRecord(fileType, filePath));
-                    }
-                }
+    // Monitoring part
+    public void changeMonitoring() {
+        try {
+            WatchKey key = watchService.take();
+            for (WatchEvent<?> event : key.pollEvents()) {
+                handleFileEvent(event);
             }
-
-            // Use a lock to add new records and update the 'records' list
-            synchronized (lock) {
-                records.addAll(newRecords);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            key.reset();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
+    }
 
-        // Check for deleted files
-        List<Record> recordsToRemove = new ArrayList<>();
-
-        // Use a lock to protect access to the shared 'records' list
-        synchronized (lock) {
-            for (Record record : records) {
-                boolean found = false;
-                try (DirectoryStream<Path> stream = Files.newDirectoryStream(directoryPath)) {
-                    for (Path filePath : stream) {
-                        if (record.getName().equals(filePath.getFileName().toString())) {
-                            found = true;
-                            break;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (!found) {
-                    System.out.println(record.getName() + " - Deleted");
-                    recordsToRemove.add(record);
-                }
-            }
-
-            // Remove deleted records
-            records.removeAll(recordsToRemove);
+    private void handleFileEvent(WatchEvent<?> event) {
+        Path filePath = (Path) event.context();
+//        FileType fileType = FileType.determineFileType(directoryPath.resolve(filePath));
+        if (event.kind() == StandardWatchEventKinds.ENTRY_CREATE) {
+            handleFileCreation(filePath);
+        } else if (event.kind() == StandardWatchEventKinds.ENTRY_MODIFY) {
+            handleFileModification(filePath);
+        } else if (event.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
+            handleFileDeletion(filePath);
         }
+    }
+
+    private void handleFileCreation(Path filePath) {
+        System.out.println(filePath + " - New file created at " + formatTime(System.currentTimeMillis()));
+    }
+
+    private void handleFileModification(Path filePath) {
+        for (Record record : records) {
+            if (record.getName().equals(filePath.getFileName().toString())) {
+                System.out.println(filePath + " - Change at " + formatTime(System.currentTimeMillis()));
+                break;
+            }
+        }
+    }
+
+    private void handleFileDeletion(Path filePath) {
+        System.out.println(filePath + " - Deleted");
     }
 
 }

@@ -1,8 +1,8 @@
-package monitor;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
+//package monitor;
+//import java.io.BufferedReader;
+//import java.io.IOException;
+//import java.io.InputStreamReader;
+//
 //public class UserInterface {
 //    private FileProcessor fileProcessor;
 //
@@ -19,8 +19,8 @@ import java.io.InputStreamReader;
 //
 //                switch (command) {
 //                    case "commit":
-//                        fileProcessor.updateSnapshotTime();
-//                        printMessage("Snapshot time updated to " + formatTime(fileProcessor.getLastSnapshotTime()));
+//                        lastSnapshotTime = System.currentTimeMillis();
+//                        System.out.println("Snapshot time updated " + formatTime(lastSnapshotTime));
 //                        break;
 //                    case "status":
 //                        fileProcessor.checkStatus();

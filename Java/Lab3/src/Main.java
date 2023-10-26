@@ -1,128 +1,16 @@
-import models.Image;
-import models.Script;
-import models.Text;
 import monitor.ChangeMonitor;
 import monitor.ChangeMonitorApp;
 
-import java.io.IOException;
 import java.nio.file.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-class FileMonitor {
-    private WatchService watchService;
-
-    public FileMonitor(String directoryPath) throws IOException {
-        this.watchService = FileSystems.getDefault().newWatchService();
-        Path directory = Path.of(directoryPath);
-        directory.register(watchService, StandardWatchEventKinds.ENTRY_CREATE,
-                StandardWatchEventKinds.ENTRY_MODIFY,
-                StandardWatchEventKinds.ENTRY_DELETE);
-    }
-
-    public void startMonitoring() {
-        try {
-            while (true) {
-                WatchKey watchKey = watchService.take();
-                for (WatchEvent<?> event : watchKey.pollEvents()) {
-                    WatchEvent<Path> pathEvent = (WatchEvent<Path>) event;
-                    Path fileName = pathEvent.context();
-                    WatchEvent.Kind<?> kind = event.kind();
-
-                    handleEvent(kind, fileName);
-                }
-                watchKey.reset();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    protected void handleEvent(WatchEvent.Kind<?> kind, Path fileName) {
-        // Subclasses will implement this method to handle specific events.
-    }
-}
-
-class FileChangeMonitor extends FileMonitor {
-    public FileChangeMonitor(String directoryPath) throws IOException {
-        super(directoryPath);
-    }
-
-    @Override
-    protected void handleEvent(WatchEvent.Kind<?> kind, Path fileName) {
-        if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {
-            System.out.println("A file has been modified: " + fileName);
-        }
-    }
-}
-
-class FileCreateMonitor extends FileMonitor {
-    public FileCreateMonitor(String directoryPath) throws IOException {
-        super(directoryPath);
-    }
-
-    @Override
-    protected void handleEvent(WatchEvent.Kind<?> kind, Path fileName) {
-        if (kind == StandardWatchEventKinds.ENTRY_CREATE) {
-            System.out.println("A new file is created: " + fileName);
-        }
-    }
-}
 
 public class Main {
     public static void main(String[] args) {
-//        try {
-//            String directoryPath = "D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test";
-//            FileChangeMonitor changeMonitor = new FileChangeMonitor(directoryPath);
-//            FileCreateMonitor createMonitor = new FileCreateMonitor(directoryPath);
-//            Thread changeThread = new Thread(changeMonitor::startMonitoring);
-//            Thread createThread = new Thread(createMonitor::startMonitoring);
-//            changeThread.start();
-//            createThread.start();
-//            changeThread.join();
-//            createThread.join();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
 
-        // Create a Path for a sample file
-//        Path filePath = Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test\\gay.txt");
-//
-//        // Create a Record object
-//        models.Record record = new models.Record(filePath);
-//        // Verify if the getExtension method works
-//        System.out.println("File Extension: " + record.getExtension());
-//
-//        // Verify if the getCreationTime method works
-//        System.out.println("Creation Time: " + record.getCreationTime());
-//
-//        // Verify if the getModificationTime method works
-//        System.out.println("Modification Time: " + record.getModificationTime());
-//
-//        System.out.println("info: " + record.getInfo());
-//
-//        // Create an Image object
-//        Image image = new Image(Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test\\cat.png"));
-//
-//        // Print the image's info
-//        System.out.println("Image Info: ");
-//        System.out.println(image.getInfo());
-//
-//        Text text = new Text(Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test\\gay.txt"));
-//        System.out.println("text Info: ");
-//        System.out.println(text.getInfo());
-//
-//        Script script = new Script(Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test\\Main.java"));
-//        System.out.println("Script Info: ");
-//        System.out.println(script.getInfo());
         Path directoryPath = Path.of("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test");
-        ChangeMonitorApp changeMonitorApp = new ChangeMonitorApp();
-//        ChangeMonitor changeMonitor = new ChangeMonitor(directoryPath);
-//        changeMonitor.startMonitoring();
-//        Path directoryPath = Paths.get("D:\\secrete\\univer\\anul2\\labs\\Java\\Lab3\\test");
-
-        // Create a ChangeMonitor instance
         ChangeMonitor changeMonitor = new ChangeMonitor(directoryPath);
 
         // Start the console input processing thread
@@ -130,9 +18,8 @@ public class Main {
             changeMonitor.startMonitoring();
         });
         consoleThread.start();
-
         // Create a scheduled executor to run detectFileChanges every 5 seconds
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        scheduler.scheduleAtFixedRate(() -> changeMonitor.detectFileChanges(), 0, 5, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(() -> changeMonitor.changeMonitoring(), 0, 5, TimeUnit.SECONDS);
     }
 }

@@ -19,8 +19,8 @@ public class ChangeMonitorApp {
         consoleThread.start();
 
         // Create a scheduled executor to run detectFileChanges every 5 seconds
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        scheduler.scheduleAtFixedRate(() -> changeMonitor.detectFileChanges(), 0, 5, TimeUnit.SECONDS);
+//        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+//        scheduler.scheduleAtFixedRate(() -> changeMonitor.changeMonitoring(), 0, 5, TimeUnit.SECONDS);
     }
 }
 
