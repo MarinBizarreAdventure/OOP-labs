@@ -20,7 +20,7 @@ public class ChangeMonitor {
     private final Path directoryPath;
     private long lastSnapshotTime;
 
-    private  List<Record> records;
+    private final List<Record> records;
     private WatchService watchService;
 
 
@@ -89,44 +89,50 @@ public class ChangeMonitor {
         }
     }
 
+
     private void checkStatus() {
-        // Specify the snapshot time
         System.out.println("Created Snapshot at: " + formatTime(lastSnapshotTime));
-
-        List<Record> recordsToRemove = new ArrayList<>();
-
-        // Implement the logic to check the status of files since the last snapshot time
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(directoryPath)) {
             for (Path filePath : stream) {
                 FileType fileType = FileType.determineFileType(filePath);
 
-                boolean found = false;
-
-                for (Record record : records)
-                    if (record.getName().equals(filePath.getFileName().toString())) {
-                        found = true;
-                        long lastModifiedTime = record.lastModified();
-                        if (lastModifiedTime > lastSnapshotTime)
-                            System.out.println(record.getName() + " - Change at " + formatTime(lastModifiedTime));
-                        else
-                            System.out.println(record.getName() + " - No change since " + formatTime(lastModifiedTime));
-                        break;
-                    }
-
-                if (!found) {
-                    // New file
-                    records.add(createRecord(fileType, filePath));
-                    Record lastAddedRecord = records.get(records.size() - 1);
-
-                    System.out.println(lastAddedRecord.getName() + " - New file created at" + lastAddedRecord.getCreationTime());
-
+                Record existingRecord = findRecordByName(filePath.getFileName().toString());
+                if (existingRecord != null) {
+                    long lastModifiedTime = existingRecord.lastModified();
+                    handleExistingRecord(existingRecord, lastModifiedTime);
+                } else {
+                    handleNewFile(fileType, filePath);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        removeDeletedFiles();
+    }
 
-        // Remove deleted files
+    private Record findRecordByName(String fileName) {
+        return records.stream()
+                .filter(record -> record.getName().equals(fileName))
+                .findFirst()
+                .orElse(null);
+    }
+
+    private void handleExistingRecord(Record record, long lastModifiedTime) {
+        if (lastModifiedTime > lastSnapshotTime) {
+            System.out.println(record.getName() + " - Change at " + formatTime(lastModifiedTime));
+        } else {
+            System.out.println(record.getName() + " - No change since " + formatTime(lastModifiedTime));
+        }
+    }
+
+    private void handleNewFile(FileType fileType, Path filePath) {
+        records.add(createRecord(fileType, filePath));
+        Record lastAddedRecord = records.get(records.size() - 1);
+        System.out.println(lastAddedRecord.getName() + " - New file created at " + lastAddedRecord.getCreationTime());
+    }
+
+    private void removeDeletedFiles() {
+        List<Record> recordsToRemove = new ArrayList<>();
         for (Record record : records) {
             boolean found = false;
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(directoryPath)) {
@@ -147,6 +153,7 @@ public class ChangeMonitor {
         records.removeAll(recordsToRemove);
     }
 
+
     private Record createRecord(FileType fileType, Path filePath) {
         return switch (fileType) {
             case IMAGE -> new Image(filePath);
@@ -157,14 +164,18 @@ public class ChangeMonitor {
     }
 
     private void printInfo(String fileName) {
-        for (Record record : records) {
-            if (record.getName().equals(fileName)) {
-                System.out.println(record.getInfo());
-                return;
-            }
+        Record record = records.stream()
+                .filter(r -> r.getName().equals(fileName))
+                .findFirst()
+                .orElse(null);
+
+        if (record != null) {
+            System.out.println(record.getInfo());
+            return;
         }
         System.out.println("File not found: " + fileName);
     }
+
 
     private String formatTime(long timeInMillis) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
