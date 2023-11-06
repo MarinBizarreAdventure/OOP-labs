@@ -1,4 +1,5 @@
 import stack.*;
+import queue.ArrayQueue;
 public class Main {
         public static void main(String[] args) {
             // Create a dynamic array stack
@@ -80,6 +81,46 @@ public class Main {
             System.out.println("Popped element from Stack 2: " + doubleStack.popStack2());
             System.out.println("Is Stack 2 empty? " + doubleStack.isEmptyStack2());
             System.out.println("Size of Stack 2: " + doubleStack.sizeStack2());
+
+
+            //Queues
+
+            System.out.println("ArrayQueue");
+            ArrayQueue<Integer> queue = new ArrayQueue<>(3); // Initial capacity is 3
+
+            // Enqueue elements
+            queue.enqueue(1);
+            queue.enqueue(2);
+            queue.enqueue(3);
+
+            // Check if resizing works by enqueuing more elements
+            queue.enqueue(4); // This should trigger a resizing
+
+            // Dequeue elements
+            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 1"
+            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 2"
+
+            // Enqueue more elements after resizing
+            queue.enqueue(5);
+            queue.enqueue(6);
+
+            // Dequeue the remaining elements
+            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 3"
+            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 4"
+            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 5"
+            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 6"
+
+            // The queue is now empty
+
+            // Check if the queue is empty
+            System.out.println("Is the queue empty? " + queue.isEmpty()); // Should print "Is the queue empty? true"
+
+            // Clear the queue
+            queue.clear();
+
+            // Check if the queue is empty after clearing
+            System.out.println("Is the queue empty after clearing? " + queue.isEmpty()); // Should print "Is the queue empty after clearing? true"
+
         }
 
 }
