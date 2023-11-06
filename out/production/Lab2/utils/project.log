@@ -402,3 +402,115 @@ Oct 04, 2023 6:51:12 PM services.FacultyService graduateStudent
 INFO: Student Student{firstName='marin', lastName='negai', email='negaimarin@gmail.com', enrollmentDate=Wed Oct 04 18:16:44 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=true} is now graduated!
 Oct 04, 2023 6:53:27 PM services.FileService loadData
 INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 8:37:35 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 04, 2023 8:37:47 PM services.GeneralService displayFaculties
+INFO: Displaying faculties:
+Oct 04, 2023 8:37:47 PM services.GeneralService displayFaculties
+INFO: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+
+Oct 10, 2023 1:14:53 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 10, 2023 1:15:31 PM services.GeneralService displayFaculties
+INFO: Displaying faculties:
+Oct 10, 2023 1:15:31 PM services.GeneralService displayFaculties
+INFO: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+
+Oct 10, 2023 1:16:24 PM enums.StudyField isValidAbbreviation
+WARNING: Abbreviation 'Faf'' is not valid.
+Oct 10, 2023 1:16:24 PM services.GeneralService displayFacultiesOfAField
+WARNING: No such study field: Faf'
+Oct 10, 2023 1:16:30 PM enums.StudyField isValidAbbreviation
+INFO: Abbreviation 'FAF' is valid.
+Oct 10, 2023 1:16:30 PM services.GeneralService displayFacultiesOfAField
+INFO: Displaying faculties for field: SOFTWARE_ENGINEERING
+Oct 10, 2023 1:17:32 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:17:32 PM services.FacultyService displayAllStudentsByFaculty
+INFO: Displaying students for faculty: facultatea de calculatoare, informatica si microelectronica
+Oct 10, 2023 1:18:48 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:23:40 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: negaimarin@gmail.com
+Oct 10, 2023 1:23:40 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:23:40 PM services.FacultyService checkIfStudentIsPresentInFaculty
+INFO: Student marin negai belongs to faculty facultatea de calculatoare, informatica si microelectronica
+Oct 10, 2023 1:26:47 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:26:47 PM models.Student <init>
+INFO: Created student: maria Colta (Email: mariacolta@gmail.com)
+Oct 10, 2023 1:26:47 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='maria', lastName='Colta', email='mariacolta@gmail.com', enrollmentDate=Tue Oct 10 13:26:47 EEST 2023, dateOfBirth=Sun Mar 02 00:00:00 EET 2003, graduated=false} was successfully created
+Oct 10, 2023 1:26:47 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:26:47 PM models.Student <init>
+INFO: Created student: Pereteatcu Arina (Email: PereteatcuArina@gmail.com)
+Oct 10, 2023 1:26:47 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='Pereteatcu', lastName='Arina', email='PereteatcuArina@gmail.com', enrollmentDate=Tue Oct 10 13:26:47 EEST 2023, dateOfBirth=Sun Apr 18 00:00:00 EEST 2004, graduated=false} was successfully created
+Oct 10, 2023 1:26:47 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:26:47 PM models.Student <init>
+INFO: Created student: Neadealcova Irina (Email: NeadealcovaIrina@gmail.com)
+Oct 10, 2023 1:26:47 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='Neadealcova', lastName='Irina', email='NeadealcovaIrina@gmail.com', enrollmentDate=Tue Oct 10 13:26:47 EEST 2023, dateOfBirth=Tue Apr 29 00:00:00 EEST 2003, graduated=false} was successfully created
+Oct 10, 2023 1:26:47 PM services.FileService batchReader
+WARNING: Invalid enrollment data: 
+Oct 10, 2023 1:26:47 PM services.FileService batchReader
+WARNING: Invalid enrollment data: 
+Oct 10, 2023 1:26:47 PM services.FileService batchReader
+INFO: Batch enrollment completed.
+Oct 10, 2023 1:28:15 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:28:15 PM services.FacultyService displayAllStudentsByFaculty
+INFO: Displaying students for faculty: facultatea de calculatoare, informatica si microelectronica
+Oct 10, 2023 1:29:03 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: PereteatcuArina@gmail.com
+Oct 10, 2023 1:29:03 PM services.FacultyService graduateStudent
+INFO: Student Student{firstName='Pereteatcu', lastName='Arina', email='PereteatcuArina@gmail.com', enrollmentDate=Tue Oct 10 13:26:47 EEST 2023, dateOfBirth=Sun Apr 18 00:00:00 EEST 2004, graduated=true} is now graduated!
+Oct 10, 2023 1:29:03 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: NeadealcovaIrina@gmail.com
+Oct 10, 2023 1:29:03 PM services.FacultyService graduateStudent
+INFO: Student Student{firstName='Neadealcova', lastName='Irina', email='NeadealcovaIrina@gmail.com', enrollmentDate=Tue Oct 10 13:26:47 EEST 2023, dateOfBirth=Tue Apr 29 00:00:00 EEST 2003, graduated=true} is now graduated!
+Oct 10, 2023 1:29:03 PM services.FileService batchReader
+INFO: Batch graduation completed.
+Oct 10, 2023 1:29:20 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:31:14 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: PereteatcuArina@gmail.com
+Oct 10, 2023 1:31:14 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fcim
+Oct 10, 2023 1:31:14 PM services.FacultyService checkIfStudentIsPresentInFaculty
+INFO: Student Pereteatcu Arina belongs to faculty facultatea de calculatoare, informatica si microelectronica
+Oct 10, 2023 2:08:54 PM services.FileService loadData
+INFO: Data loaded from Java/Lab2/src/datastorage/student_data.txt
+Oct 10, 2023 2:09:05 PM services.GeneralService displayFaculties
+INFO: Displaying faculties:
+Oct 10, 2023 2:09:05 PM services.GeneralService displayFaculties
+INFO: Faculty{name='facultatea de calculatoare, informatica si microelectronica', abbreviation='fcim', field=SOFTWARE_ENGINEERING}
+Faculty{name='facultatea Tehnologiei alimentatiei', abbreviation='fta', field=FOOD_TECHNOLOGY}
+Faculty{name='facultatea de inginerie mecanica', abbreviation='fme', field=MECHANICAL_ENGINEERING}
+Faculty{name='facultatea de arhitectura si urbanism', abbreviation='fau', field=URBANISM_ARCHITECTURE}
+
+Oct 10, 2023 2:10:18 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fau
+Oct 10, 2023 2:10:19 PM models.Student <init>
+INFO: Created student: jon snow (Email: jonsnow@gamil.com)
+Oct 10, 2023 2:10:19 PM services.FacultyService createStudent
+INFO: Student: Student{firstName='jon', lastName='snow', email='jonsnow@gamil.com', enrollmentDate=Tue Oct 10 14:10:19 EEST 2023, dateOfBirth=Thu Mar 02 00:00:00 EET 2000, graduated=false} was successfully created
+Oct 10, 2023 2:10:33 PM services.FacultyService getFacultyByAbbreviation
+INFO: Found faculty with abbreviation: fau
+Oct 10, 2023 2:10:33 PM services.FacultyService displayAllStudentsByFaculty
+INFO: Displaying students for faculty: facultatea de arhitectura si urbanism
+Oct 10, 2023 2:11:07 PM services.FacultyService getStudentByEmail
+INFO: Found student with email: jonsnow@gamil.com
+Oct 10, 2023 2:11:07 PM services.FacultyService graduateStudent
+INFO: Student Student{firstName='jon', lastName='snow', email='jonsnow@gamil.com', enrollmentDate=Tue Oct 10 14:10:19 EEST 2023, dateOfBirth=Thu Mar 02 00:00:00 EET 2000, graduated=true} is now graduated!
+Oct 10, 2023 2:11:18 PM services.FileService saveData
+INFO: Data saved to Java/Lab2/src/datastorage/student_data.txt
