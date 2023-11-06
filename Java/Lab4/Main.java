@@ -52,5 +52,34 @@ public class Main {
             System.out.println("Stack size after clearing: " + stack.size()); // Output: Stack size after clearing: 0
             System.out.println("Is the stack empty after clearing? " + stack.isEmpty()); // Output: Is the stack empty after clearing? true
 
+
+            // Create a DoubleStack with a capacity of 10
+            System.out.println("DoubleStack");
+            DoubleStack<Integer> doubleStack = new DoubleStack<>(10);
+
+            // Push elements to Stack 1
+            for (int i = 1; i <= 5; i++) {
+                doubleStack.pushStack1(i);
+            }
+
+            // Push elements to Stack 2
+            for (int i = 6; i <= 10; i++) {
+                doubleStack.pushStack2(i);
+            }
+
+            // Test Stack 1 operations
+            System.out.println("Stack 1 Operations:");
+            System.out.println("Top element in Stack 1: " + doubleStack.peekStack1());
+            System.out.println("Popped element from Stack 1: " + doubleStack.popStack1());
+            System.out.println("Is Stack 1 empty? " + doubleStack.isEmptyStack1());
+            System.out.println("Size of Stack 1: " + doubleStack.sizeStack1());
+
+            // Test Stack 2 operations
+            System.out.println("\nStack 2 Operations:");
+            System.out.println("Top element in Stack 2: " + doubleStack.peekStack2());
+            System.out.println("Popped element from Stack 2: " + doubleStack.popStack2());
+            System.out.println("Is Stack 2 empty? " + doubleStack.isEmptyStack2());
+            System.out.println("Size of Stack 2: " + doubleStack.sizeStack2());
         }
+
 }
