@@ -1,5 +1,5 @@
 import stack.*;
-import queue.ArrayQueue;
+import queue.*;
 public class Main {
         public static void main(String[] args) {
             // Create a dynamic array stack
@@ -86,40 +86,62 @@ public class Main {
             //Queues
 
             System.out.println("ArrayQueue");
-            ArrayQueue<Integer> queue = new ArrayQueue<>(3); // Initial capacity is 3
+            ArrayQueue<Integer> arrayQueue = new ArrayQueue<>(3); // Initial capacity is 3
 
             // Enqueue elements
-            queue.enqueue(1);
-            queue.enqueue(2);
-            queue.enqueue(3);
+            arrayQueue.enqueue(1);
+            arrayQueue.enqueue(2);
+            arrayQueue.enqueue(3);
 
             // Check if resizing works by enqueuing more elements
-            queue.enqueue(4); // This should trigger a resizing
+            arrayQueue.enqueue(4); // This should trigger a resizing
 
             // Dequeue elements
-            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 1"
-            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 2"
+            System.out.println("Dequeued: " + arrayQueue.dequeue()); // Should print "Dequeued: 1"
+            System.out.println("Dequeued: " + arrayQueue.dequeue()); // Should print "Dequeued: 2"
 
             // Enqueue more elements after resizing
-            queue.enqueue(5);
-            queue.enqueue(6);
+            arrayQueue.enqueue(5);
+            arrayQueue.enqueue(6);
 
             // Dequeue the remaining elements
-            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 3"
-            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 4"
-            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 5"
-            System.out.println("Dequeued: " + queue.dequeue()); // Should print "Dequeued: 6"
+            System.out.println("Dequeued: " + arrayQueue.dequeue()); // Should print "Dequeued: 3"
+            System.out.println("Dequeued: " + arrayQueue.dequeue()); // Should print "Dequeued: 4"
+            System.out.println("Dequeued: " + arrayQueue.dequeue()); // Should print "Dequeued: 5"
+            System.out.println("Dequeued: " + arrayQueue.dequeue()); // Should print "Dequeued: 6"
 
             // The queue is now empty
 
             // Check if the queue is empty
-            System.out.println("Is the queue empty? " + queue.isEmpty()); // Should print "Is the queue empty? true"
+            System.out.println("Is the queue empty? " + arrayQueue.isEmpty()); // Should print "Is the queue empty? true"
 
             // Clear the queue
-            queue.clear();
+            arrayQueue.clear();
 
             // Check if the queue is empty after clearing
-            System.out.println("Is the queue empty after clearing? " + queue.isEmpty()); // Should print "Is the queue empty after clearing? true"
+            System.out.println("Is the queue empty after clearing? " + arrayQueue.isEmpty()); // Should print "Is the queue empty after clearing? true"
+
+            //linkedQueue
+            System.out.println(" LinkedQueue");
+            LinkedQueue<Integer> linkedQueue = new LinkedQueue<>();
+
+            linkedQueue.enqueue(1);
+            linkedQueue.enqueue(2);
+            linkedQueue.enqueue(3);
+
+            System.out.println("Front: " + linkedQueue.peek()); // Front: 1
+
+            System.out.println("Dequeue: " + linkedQueue.dequeue()); // Dequeue: 1
+            System.out.println("Dequeue: " + linkedQueue.dequeue()); // Dequeue: 2
+
+            System.out.println("Is empty? " + linkedQueue.isEmpty()); // Is empty? false
+            System.out.println("Size: " + linkedQueue.size()); // Size: 1
+
+            linkedQueue.clear();
+            System.out.println("Cleared the queue.");
+
+            System.out.println("Is empty after clear? " + linkedQueue.isEmpty()); // Is empty after clear? true
+            System.out.println("Size after clear: " + linkedQueue.size()); // Size after clear: 0
 
         }
 
