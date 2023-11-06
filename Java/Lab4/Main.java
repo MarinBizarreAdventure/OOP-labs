@@ -122,7 +122,7 @@ public class Main {
             System.out.println("Is the queue empty after clearing? " + arrayQueue.isEmpty()); // Should print "Is the queue empty after clearing? true"
 
             //linkedQueue
-            System.out.println(" LinkedQueue");
+            System.out.println("LinkedQueue");
             LinkedQueue<Integer> linkedQueue = new LinkedQueue<>();
 
             linkedQueue.enqueue(1);
@@ -142,6 +142,27 @@ public class Main {
 
             System.out.println("Is empty after clear? " + linkedQueue.isEmpty()); // Is empty after clear? true
             System.out.println("Size after clear: " + linkedQueue.size()); // Size after clear: 0
+
+
+            // PriorityQueue
+            System.out.println("PriorityQueue");
+            PriorityQueue<Integer> pq = new PriorityQueue<>();
+            pq.enqueue(10);
+            pq.enqueue(30);
+            pq.enqueue(20);
+            pq.enqueue(5);
+
+            System.out.println("Peek: " + pq.peek());
+
+            while (!pq.isEmpty()) {
+                System.out.println("Dequeue: " + pq.dequeue());
+            }
+
+            System.out.println("Is Empty: " + pq.isEmpty());
+            System.out.println("Size: " + pq.size());
+            pq.clear();
+            System.out.println("Is Empty after clear: " + pq.isEmpty());
+            System.out.println("Size after clear: " + pq.size());
 
         }
 
